@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="sq">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faqja Kryesore</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; /* Ngjyra e parazgjedhur e sfondit */
+            transition: background-color 0.3s ease; /* Tranzicioni për ngjyrën e sfondit */
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        header img {
+            margin-left: 20px;
+            cursor: pointer;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #ddd;
+        }
+
+        .slider-container {
+            margin-top: 20px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%; /* Përmbajtësi e plotësuar me gjerësi të plotë */
+            max-width: 750px; /* Gjerësia maksimale e slider-it */
+            margin: 20px auto;
+        }
+
+        .slider-content {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 300px; /* Lartësi e slider-it */
+            max-width: 750px; /* Gjerësia maksimale e slider-it */
+            margin: 0 auto;
+        }
+
+        .slider-item {
+            flex: 0 0 100%; /* Gjerësi fikse barabani me gjerësinë e slider-it */
+            height: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hijeshkë default */
+            transition: box-shadow 0.3s ease; /* Tranzicioni për hijeshkë */
+        }
+
+        .slider-item:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Hijeshkë në hover */
+        }
+
+        .slider-item:nth-child(1):hover {
+            background-color: #f44336; /* Foni i kuq për slider-in e parë */
+        }
+
+        .slider-item:nth-child(2):hover {
+            background-color: #2196f3; /* Foni blu për slider-in e dytë */
+        }
+
+        .slider-item:nth-child(3):hover {
+            background-color: #ffeb3b; /* Foni i verdhë për slider-in e tretë */
+        }
+
+        .slider-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .slider-item .slider-text {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            z-index: 1;
+        }
+
+        .slider-item .slider-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .slider-item .slider-description {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .slider-item a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .slider-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #bbb;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background-color: #333;
+        }
+
+        @media only screen and (max-width: 768px) {
+            /* Stilizime për pajisje mobile */
+            .slider-container {
+                width: 100%; /* Përmbajtësi e plotësuar me gjerësi të plotë */
+                max-width: 100%; /* Gjerësia maksimale e slider-it */
+            }
+
+            .slider-content {
+                max-width: 100%; /* Gjerësia maksimale e slider-it */
+            }
+
+            .slider-item {
+                flex: 0 0 100%; /* Gjerësi fikse barabani me gjerësinë e slider-it */
+                height: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="index.html">
+            <img src="logo.png" alt="Logo" height="50">
+        </a>
+        <nav>
+            <a href="home.html">Kreu</a>
+            <a href="video.html">Video</a>
+            <a href="sport.html">Sport</a>
+            <a href="youtube.html">YouTube</a>
+            <a href="facebook.html">Facebook</a>
+            <a href="instagram.html">Instagram</a>
+            <a href="live.html">Live</a>
+        </nav>
+    </header>
+
+    <div class="slider-container">
+        <div class="slider-content">
+            <div class="slider-item" data-bg-color="#f44336"> <!-- Foni i kuq për slider-in e parë -->
+                <a href="page1.html">
+                    <img src="download.png" alt="Slajd 1">
+                    <div class="slider-text">
+                        <div class="slider-title>Mirësevini në faqen tonë</div>
+                        <div class="slider-description>Shfletoni lajmet dhe përditësimet më të fundit nga komuniteti ynë.</div>
+                    </div>
+                </a>
+            </div>
+            <div class="slider-item" data-bg-color="#2196f3"> <!-- Foni blu për slider-in e dytë -->
+                <a href="page2.html">
+                    <img src="png-transparent-flag-europe-symbol-flag-of-europe-european-flag-european-union-eu-international.png" alt="Slajd 2">
+                    <div class="slider-text">
+                        <div class="slider-title>Shfaq kulturën Evropiane</div>
+                        <div class="slider-description>Mësoni rreth kulturave dhe traditave të ndryshme të Evropës.</div>
+                    </div>
+                </a>
+            </div>
+            <div class="slider-item" data-bg-color="#ffeb3b"> <!-- Foni i verdhë për slider-in e tretë -->
+                <a href="page3.html">
+                    <img src="Flag_of_Kosovo.png" alt="Slajd 3">
+                    <div class="slider-text">
+                        <div class="slider-title>Experienca në Kosovë</div>
+                        <div class="slider-description>Eksploroni bukurinë natyrore dhe historinë e pasur të Kosovës.</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <ul class="slider-dots">
+            <li class="slider-dot"></li>
+            <li class="slider-dot"></li>
+            <li class="slider-dot"></li>
+        </ul>
+    </div>
+
+    <script>
+        const sliderItems = document.querySelectorAll('.slider-item');
+        const dots = document.querySelectorAll('.slider-dot');
+        const body = document.body;
+
+        sliderItems.forEach(item => {
+            item.addEventListener('mouseenter', function () {
+                const bgColor = this.getAttribute('data-bg-color');
+                body.style.backgroundColor = bgColor;
+            });
+
+            item.addEventListener('mouseleave', function () {
+                body.style.backgroundColor = '#f0f0f0'; // Ktheje sfondin në ngjyrën parazgjedhur
+            });
+        });
+
+        // Funksionaliteti i slider-it
+        const sliderContent = document.querySelector('.slider-content');
+        const slides = document.querySelectorAll('.slider-item');
+
+        let currentIndex = 0;
+        let timer;
+        function updateSlider(index) {
+    const offset = -index * 100; // Adjusted for slider width in percentage
+    sliderContent.style.transform = `translateX(${offset}%)`;
+
+    // Update active dot
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
+}
+
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlider(currentIndex);
+}
+
+// Automatic slide change every 3 seconds
+timer = setInterval(nextSlide, 3000);
+
+// Pause slider on hover
+sliderContent.addEventListener('mouseenter', () => {
+    clearInterval(timer);
+});
+
+// Resume slider on mouse leave
+sliderContent.addEventListener('mouseleave', () => {
+    timer = setInterval(nextSlide, 3000);
+});
+
+// Click on dots to change slide
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        currentIndex = index;
+        updateSlider(currentIndex);
+        clearInterval(timer);
+        timer = setInterval(nextSlide, 3000);
+    });
+});
